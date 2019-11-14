@@ -36,7 +36,7 @@ if(isset($_POST)) {
 				echo "Bestelling succesvol doorgegeven";
 			}
 			else
-				echo "Deze bestelling is reeds doorgegeven aan de keuken";
+				echo "Deze bestelling is reeds doorgegeven aan de keuken of is niet besteld";
 		}
 }
 ?>

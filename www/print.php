@@ -7,17 +7,26 @@
 	$pK = $set['pK'];
 	$pS = $set['pS'];
 	$pKa = $set['pKa'];
-	
+
 	$id = $_GET['id'];
-	
+
 	date_default_timezone_set('Europe/Brussels');
 ?>
+
+<script>
+
+window.addEventListener('DOMContentLoaded', function () {
+	window.print();
+	window.onfocus = function () { window.close(); };
+});
+
+</script>
 
 <html>
 <link rel="stylesheet" href="print.css">
 <title>vzw KSA Buggenhout - Kiekenfeesten</title>
 </html>
-<body onload="window.print(); window.close()">
+<body>
 <div id="center">
 	<div id="top">
 		<div id="top-l"><?php echo $id; ?>
@@ -25,13 +34,13 @@
 		<div id="top-m">Tafel
 		</div>
 		<div id="top-t"><?php echo date("d-m-Y H:i"); ?>
-		</div>		
+		</div>
 		<div id="top-r"><?php echo htmlentities($_GET['naam']); ?>
 		</div>
 	</div>
 	<div id="soep"><h1><?php if($_GET['soep'] != 0) echo "Soep"; ?></h1>
 	</div>
-	
+
 	<div id="qr"><?php
 			include "phpqrcode/qrlib.php";
 			QRcode::png('http://'.$ip.'/opnemen.php?id=' . $id, 'test.png', 'L', 4, 2);
@@ -75,13 +84,13 @@
 	</div>
 	<div id="opm-r">
 		<h2>&nbsp;<?php echo htmlentities($_GET['opm']); ?></h2>
-		
+
 	</div>
 	<div id="bottom-l">
 		<h2>Kaarten:</h2>
 		<h2>Totaal:</h2>
 	</div>
-	
+
 	<div id="bottom-ll">
 		<h2>&nbsp;<?php echo htmlentities($_GET['kaarten']); ?></h2>
 		<h2>&euro; &nbsp;<?php echo (((($_GET['vNat']+$_GET['vCur']+$_GET['vPro']+$_GET['vApp'])*$pV)+($_GET['soep']*$pS)+(($_GET['kNat']+$_GET['kCur']+$_GET['kPro']+$_GET['kApp'])*$pK))-($_GET['kaarten']*$pKa)); ?></h2>
@@ -90,7 +99,7 @@
 		<h2>Aantal menu's</h2>
 		<h1><?php echo (($_GET['vNat']+$_GET['vCur']+$_GET['vPro']+$_GET['vApp']))+(($_GET['kNat']+$_GET['kCur']+$_GET['kPro']+$_GET['kApp'])); ?></h1>
 	</div>
-	
+
 </div>
 </body>
 </html>
