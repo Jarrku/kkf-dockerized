@@ -1,0 +1,381 @@
+body {
+	background: #EEEEEE;
+	color: #000000;
+	font-size: 12pt;
+	padding: 0;
+	margin: 0;
+	font-family: Tahoma, Verdana;
+}
+
+header {
+	border-top: 6px solid #0167B2;
+	height: 34px;
+	line-height: 34px;
+	background: #CCC;
+}
+
+h2 {
+	font-size: 14pt;
+}
+
+#header-content {
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#header-content a , a:active, a:hover, a:visited{
+	text-align: center;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 300;
+}
+
+#table-2 {
+	margin-top: 20px;
+	background-color: #EEEEEE;
+    width: 100%;
+}
+#table-2 td, #table-2 th {
+	padding: 5px;
+	color: #333;
+	text-align: center;
+}
+#table-2 thead {
+	padding: .2em 0 .2em .5em;
+	color: #4B4B4B;
+	background-color: #C8C8C8;
+}
+#table-2 th {
+	font-size: 17px;
+	line-height: 20px;
+	font-style: normal;
+	font-weight: normal;
+	text-shadow: white 1px 1px 1px;
+}
+#table-2 td {
+	line-height: 20px;
+	font-size: 14px;
+	border-bottom: 1px solid #fff;
+	border-top: 1px solid #fff;
+}
+
+#table-2 .s1 { /* Status 1: Bestelling is ingegeven aan de kassa */
+	background-color: #FFFFFF;
+}
+
+#table-2 .s2 { /* Status 2: Bestelling is binnen in de keuken */
+	background-color: #999999;
+}
+
+#table-2 .s3 { /* Status 3: Soep is buiten */
+	background-color: #6495ED;
+}
+
+#table-2 .s4 { /* Status 4: Bestelling is buiten */
+	background-color: #228B22;
+}
+
+#tafelForm  input {
+width: 60px;
+height: 60px;
+}
+
+#bestelForm {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#bestelForm label{
+display:block;
+font-weight:bold;
+text-align:right;
+width: 200px;
+height: 60px;
+line-height: 60px;
+float: left;
+padding-right: 15px;
+color: #000;
+}
+
+#bestelForm .title {
+display:block;
+font-weight:bold;
+text-align:center;
+width:400px;
+height: 60px;
+line-height: 60px;
+float:left;
+text-decoration: underline;
+margin-top: -20px;
+}
+
+#bestelForm input {
+	width: 60px;
+	height: 60px;
+	font-size: 36pt;
+	text-align:center;
+}
+
+#bestelForm .naam {
+	height: 60px;
+	width: 400px;
+	font-size: 18pt;
+	text-align: left;
+}
+
+#bestelForm .totaal {
+	height: 60px;
+	width: 120px;
+	font-size: 36pt;
+	text-align: center;
+}
+
+
+
+#bestelForm .prijs {
+	height: 60px;
+	width: 100px;
+	text-align: center;
+	font-size: 16pt;
+}
+
+#formLeft {
+	float: left;
+}
+
+#formRight {
+	float: right;
+}
+
+#formR {
+	width: 300px;
+	float: left;
+}
+
+#formR p {
+	line-height: 60px;
+	padding-left: 15px;
+	color: #9E0508;
+}
+
+
+#formBottom {
+	float: left;
+}
+#formTop {
+	float: left;
+	width: 1000px;
+	border-bottom: 2px solid #fff;
+	line-height: 60px;
+	padding-left: 15px;
+	color: #9E0508;
+}
+
+#bestelForm .knop {
+	width: 125px;
+	height: 60px;
+	margin-left: 50px;
+	font-size: 18pt;
+}
+
+#bestelForm .knopS {
+	width: 125px;
+	height: 60px;
+	margin-left: 250px;
+	font-size: 18pt;
+	
+}
+
+#stats-l {
+	margin-left: 10px;
+	width: 49%;
+	float: left;
+}
+
+#stats-r {
+	width: 49%;
+	float: right;
+	text-align: right;
+	margin-right: 10px;
+}
+
+#drankTable {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#drankTable tr {
+	height: 180px;
+}
+
+#drankTable td {
+	width: 180px;
+}
+
+#drankTable input {
+	width: 60px;
+	height: 60px;
+	font-size: 36pt;
+	text-align:center;
+}
+
+.drankPlus {
+	width: 60px;
+	height: 60px;
+}
+
+#drankTable .qtyplus {
+	width: 60px;
+	height: 30px;
+	font-size: 18pt;
+}
+
+#drankTable .qtyminus {
+width: 60px;
+	height: 30px;
+	font-size: 18pt;
+}
+
+#drankTable .knop {
+	width: 150px;
+	height: 60px;
+	font-size: 18pt;
+}
+
+#settingsForm {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#settingsForm input {
+height: 40px;
+width: 40px;
+text-align: center;
+font-size: 13pt;
+}
+
+#settingsForm .dat {
+	height: 40px;
+	width: 100px;
+	text-align: left;
+}
+
+#settingsForm label{
+display:block;
+text-align:right;
+width: 150px;
+height: 40px;
+line-height: 40px;
+float: left;
+padding-right: 15px;
+font-size: 11pt;
+color: #000;
+}
+
+#settingsForm span {
+	font-size: 9pt;
+	color: #8A0808;
+	}
+
+#settingsForm .knopS {
+	width: 125px;
+	height: 60px;
+	font-size: 18pt;	
+	margin-left: 100px;
+	margin-top: 100px;
+}
+
+#settingsForm  .formLeft {
+	width: 300px;
+	float: left;
+}
+
+/*-------------------------MODAL-------------------------*/
+.overlay {
+position:absolute;
+top:0px;
+left:0px;
+z-index:100;
+width:100%;
+height:100%;
+background:url(../images/overlay.png);
+display:none;
+}
+
+.modal_window {
+position:fixed;
+top:100px;
+background:#fff;
+z-index:101;
+display:none;
+}
+
+.modal_window.border {
+border:1px solid #d0d0d0;
+}
+
+.modal_window .header {
+background:#d0d0d0;
+color:#444;
+border-bottom:1px solid #999a9b;
+text-align:left;
+font-family:"Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+padding:8px;
+}
+
+.modal_loader {
+width:50px;
+height:50px;
+top:100px;
+position:fixed;
+background:#fff url(../images/ajax-loader.gif) no-repeat center;
+z-index:101;
+}
+
+.modal_window .header h2 {
+margin:0px;
+position:relative;
+border:0px;
+}
+.modal_window .header h2 span {
+display:block;
+position:absolute;
+top:2px;
+right:0px;
+font-size:12px;
+text-decoration:underline;
+cursor:pointer;
+font-weight:normal;
+}
+
+#modal_inner {
+padding:10px;
+}
+
+#modal_inner .novisible {
+display:block;
+}
+
+.modal_window.default {
+background:#fff;
+}
+
+.modal_window.red {
+background:red;
+border:2px solid blue;
+}
+
+.novisible {display:none;}
+/*-------------------------MODAL-------------------------*/
+
+/*--------------- LINKS ------------------*/
+a, a:hover, a:active, a:visited {
+	color: #000;
+	text-decoration: none;
+}

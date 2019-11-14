@@ -1,0 +1,150 @@
+body {
+	background: white;
+	background-image: none;
+	font-family: Tahoma, Verdana;
+}
+
+h1 {
+	font-size: 14pt;
+}
+
+h2 {
+	font-size: 12pt;
+	line-height: 40pt;
+}
+
+#center {
+	width: 595px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#top {
+	height: 101px;
+	width: 595px;
+	line-height: 101px;
+	border-bottom: 1px solid #000;
+}
+
+#top-l {
+	width: 40px;
+	float:left;
+}
+
+#top-m {
+	width: 140px;
+	float: right;
+	text-align: left;
+}
+
+#top-r {
+	width: 250px;
+	float: right;
+}
+
+#top-t {
+	width: 150px;
+	float: right;
+	text-align: left;
+}
+
+#soep {
+	padding-left: 20px;
+	height: 135px;
+	width: 230px;
+	line-height: 105px;
+	text-align: left;
+	float:left;
+	border-bottom: 1px solid #000;
+}
+
+#soep-getal {
+	height: 135px;
+	width: 205px;
+	line-height: 105px;
+	text-align: left;
+	float:right;
+	border-bottom: 1px solid #000;
+}
+
+#qr {
+	height: 135px;
+	width: 140px;
+	text-align:right;
+	float:right;
+	border-bottom: 1px solid #000;
+}
+
+#bottom-l {
+	height: 150px;
+	width: 147px;
+	float: left;
+
+}
+
+#bottom-r {
+	height: 150px;
+	width: 298px;
+	float: right;
+	text-align: center;
+	border: 1px dashed #000;
+}
+
+#bottom-r h1 {
+	margin-top: -10px;
+	font-size: 36pt;
+	line-height: 36pt;
+	}
+
+#bottom-ll {
+	height: 150px;
+	width: 147px;
+	float: left;
+}
+
+
+#eten {
+	width: 595px;
+}
+
+#eten-l {
+	height: 300px;
+	width: 147px;
+	float: left;
+	border-bottom: 1px solid #000;
+}
+
+#eten-ll {
+	height: 300px;
+	width: 147px;
+	float: right;
+	border-bottom: 1px solid #000;
+}
+
+#eten-r {
+	height: 300px;
+	width: 147px;
+	float: right;
+	border-bottom: 1px solid #000;
+}
+
+#eten-rr {
+	height: 300px;
+	width: 147px;
+	float: left;
+	border-bottom: 1px solid #000;
+}
+
+#opm-l {
+	height: 140px;
+	width: 147px;
+	float: left;
+}
+
+#opm-r {
+	height: 140px;
+	width: 440px;
+	float: right;
+}
+	
+
