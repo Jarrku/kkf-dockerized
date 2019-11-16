@@ -17,10 +17,12 @@
 	$ip = $set['ip'];
 	$fdatZ = $set['fdatZ'];
 	$datZ = $set['datZ'];
+	$pRib = $set['pRib'];
 	$pV = $set['pV'];
 	$pK = $set['pK'];
 	$pS = $set['pS'];
 	$pKa = $set['pKa'];
+	
 ?>
 <header>
 	<div id="header-content">

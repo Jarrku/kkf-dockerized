@@ -5,25 +5,25 @@ $error_show = "";
 
 if(isset($_POST['naam']) && isset($_POST['totaal']) && isset($_POST['kaarten'])) {
 	$naam = stripslashes($_POST['naam']);
-	
+
 	if($_POST['totaal'] > 0 || ($_POST['totaal'] == 0 && $_POST['kaarten'] > 0))
 		$err_tot = 0;
 	else $err_tot = 1;
-		
+
 	if($_POST['naam'] != null && preg_match('/[A-Za-z0-9]/', $_POST['naam']))
 		$err_naam = 0;
 	else $err_naam = 1;
-	
+
 	if($err_tot == 0 && $err_naam == 0)
-		// $stmt = $mysqli->prepare("INSERT INTO bestellingen (naam, kaarten, status, vNat, vCur, vPro, vApp, kNat, kCur, kPro, kApp, soep) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-		// $stmt->bind_param('siiiiiiiiiii', $naam, $_POST['kaarten'], 1, $_POST['vNat'], $_POST['vCur'], $_POST['vPro'], $_POST['vApp'], $_POST['kNat'], $_POST['kCur'], $_POST['kPro'], $_POST['kApp'], $_POST['soep']);
+		// $stmt = $mysqli->prepare("INSERT INTO bestellingen (naam, kaarten, status, vRib, vVol, kRib, kVol, soep) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+		// $stmt->bind_param('siiiiiiiiiii', $naam, $_POST['kaarten'], 1, $_POST['vRib'], $_POST['vVol'], $_POST['kRib'], $_POST['kVol'], $_POST['soep']);
 		// $stmt->execute();
 		// $stmt->close();
-		$db->query("INSERT INTO bestellingen (naam, kaarten, status, vNat, vCur, vPro, vApp, kNat, kCur, kPro, kApp, soep) VALUES ('".$naam."', ".$_POST['kaarten'].", 1,".$_POST['vNat'].",".$_POST['vCur'].",".$_POST['vPro'].",".$_POST['vApp'].",".$_POST['kNat'].",".$_POST['kCur'].",".$_POST['kPro'].",".$_POST['kApp'].",".$_POST['soep'].")", true);
+		$db->query("INSERT INTO bestellingen (naam, kaarten, status, vRib, vVol, kRib, kVol, soep) VALUES ('".$naam."', ".$_POST['kaarten'].", 1,".$_POST['vRib'].",".$_POST['vVol'].",".$_POST['kRib'].",".$_POST['kVol'].",".$_POST['soep'].")", true);
 	else if($err_tot == 1 && $err_naam == 1) {
 		$error->write(1);
 		$error->write(2);
-		$error_show = "Naam invullen en menu's bestellen aub.";		
+		$error_show = "Naam invullen en menu's bestellen aub.";
 	}
 	else if($err_tot == 1 && $err_naam == 0) {
 		$error->write(1);
@@ -33,8 +33,8 @@ if(isset($_POST['naam']) && isset($_POST['totaal']) && isset($_POST['kaarten']))
 		$error->write(2);
 		$error_show = "Vul een naam in aub.";
 	}
-}		
-	
+}
+
 $id = $db->getId();
 
 ?>
@@ -60,28 +60,16 @@ $id = $db->getId();
 	<label for="title" class="title">Volwassenen</label>
 </p>
 <p>
-	<label for="vNat">Kip Natuur</label>
-	<input type="text" name="vNat" id="vNat" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['vNat']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
-	<input type="button" value="+" class="qtyplus" field="vNat" />
-    <input type="button" value="-" class="qtyminus" field="vNat" />
+	<label for="vNat"> Ribberen </label>
+	<input type="text" name="vRib" id="vRib" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['vRib']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
+	<input type="button" value="+" class="qtyplus" field="vRib" />
+    <input type="button" value="-" class="qtyminus" field="vRib" />
 </p>
 <p>
-	<label for="vCur">Kip Curry</label>
-	<input type="text" name="vCur" id="vCur" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['vCur']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
-	<input type="button" value="+" class="qtyplus" field="vCur" />
-    <input type="button" value="-" class="qtyminus" field="vCur" />
-</p>
-<p>
-	<label for="vPro">Kip Provencaal</label>
-	<input type="text" name="vPro" id="vPro" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['vPro']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
-	<input type="button" value="+" class="qtyplus" field="vPro" />
-    <input type="button" value="-" class="qtyminus" field="vPro" />
-</p>
-<p>
-	<label for="vApp">Kip Appelmoes</label>
-	<input type="text" name="vApp" id="vApp" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['vApp']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
-	<input type="button" value="+" class="qtyplus" field="vApp" />
-    <input type="button" value="-" class="qtyminus" field="vApp" />
+	<label for="vVol">Vol-au-Vent</label>
+	<input type="text" name="vVol" id="vVol" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['vVol']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
+	<input type="button" value="+" class="qtyplus" field="vVol" />
+    <input type="button" value="-" class="qtyminus" field="vVol" />
 </p>
 </div>
 <div id="formRight">
@@ -89,28 +77,16 @@ $id = $db->getId();
 	<label for="title" class="title">Kinderen</label>
 </p>
 <p>
-	<label for="kNat">Kip Natuur</label>
-	<input type="text" name="kNat" id="kNat" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['kNat']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
-	<input type="button" value="+" class="qtyplus" field="kNat" />
-    <input type="button" value="-" class="qtyminus" field="kNat" />
+	<label for="kNat">Ribberen</label>
+	<input type="text" name="kRib" id="kRib" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['kRib']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
+	<input type="button" value="+" class="qtyplus" field="kRib" />
+    <input type="button" value="-" class="qtyminus" field="kRib" />
 </p>
 <p>
-	<label for="kCur">Kip Curry</label>
-	<input type="text" name="kCur" id="kCur" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['kCur']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
-	<input type="button" value="+" class="qtyplus" field="kCur" />
-    <input type="button" value="-" class="qtyminus" field="kCur" />
-</p>
-<p>
-	<label for="kPro">Kip Provencaal</label>
-	<input type="text" name="kPro" id="kPro" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['kPro']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
-	<input type="button" value="+" class="qtyplus" field="kPro" />
-    <input type="button" value="-" class="qtyminus" field="kPro" />
-</p>
-<p>
-	<label for="kApp">Kip Appelmoes</label>
-	<input type="text" name="kApp" id="kApp" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['kApp']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
-	<input type="button" value="+" class="qtyplus" field="kApp" />
-    <input type="button" value="-" class="qtyminus" field="kApp" />
+	<label for="kCur">Vol-au-Vent</label>
+	<input type="text" name="kVol" id="kVol" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['kVol']); else echo "0" ?>" maxlength="2" onChange="checkNumber(this)">
+	<input type="button" value="+" class="qtyplus" field="kVol" />
+    <input type="button" value="-" class="qtyminus" field="kVol" />
 </p>
 </div>
 <div id="formBottom">
@@ -131,7 +107,8 @@ $id = $db->getId();
 	<label for="tot">Totaal</label>
 	<input type="text" name="totaal" id="totaal" class="totaal" value="<?php if($err_naam == 1 || $err_tot == 1) echo htmlentities($_POST['totaal']); else echo "0" ?>" readonly>
 </p>
-<p>	
+<p>
+	<input type="hidden" name="pRib" id="pRib" value="<?php echo htmlentities($pRib); ?>">
 	<input type="hidden" name="pV" id="pV" value="<?php echo htmlentities($pV); ?>">
 	<input type="hidden" name="pK" id="pK" value="<?php echo htmlentities($pK); ?>">
 	<input type="hidden" name="pS" id="pS" value="<?php echo htmlentities($pS); ?>">

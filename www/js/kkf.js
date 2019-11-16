@@ -41,35 +41,31 @@ jQuery(document).ready(function(){
 			$('input[name=totaaldrank]').val(totaaldrank());
         }
     });
-	
-	//This is the Modal window calling	
+
+	//This is the Modal window calling
 	$('.modal_pagina').modal({width:1100,showSpeed:500,closeSpeed:500,title:true,skin:"default"});
-	//This is the Modal window calling	
+	//This is the Modal window calling
 
 });
 
 function totaal() {
-		var vNatV = parseInt($('input[name=vNat]').val()) * $('input[name=pV]').val();
-		var vCurV = parseInt($('input[name=vCur]').val()) * $('input[name=pV]').val();
-		var vProV = parseInt($('input[name=vPro]').val()) * $('input[name=pV]').val();
-		var vAppV = parseInt($('input[name=vApp]').val()) * $('input[name=pV]').val();
-		var kNatV = parseInt($('input[name=kNat]').val()) * $('input[name=pK]').val();
-		var kProV = parseInt($('input[name=kPro]').val()) * $('input[name=pK]').val();
-		var kCurV = parseInt($('input[name=kCur]').val()) * $('input[name=pK]').val();
-		var kAppV = parseInt($('input[name=kApp]').val()) * $('input[name=pK]').val();
+		var vRibV = parseInt($('input[name=vRib]').val()) * $('input[name=pRib]').val();
+		var vVolV = parseInt($('input[name=vVol]').val()) * $('input[name=pV]').val();
+		var kRibV = parseInt($('input[name=kRib]').val()) * $('input[name=pK]').val();
+		var kVolV = parseInt($('input[name=kVol]').val()) * $('input[name=pK]').val();
 		var soepV = parseInt($('input[name=soep]').val()) * $('input[name=pS]').val();
 		var kaarten = parseInt($('input[name=kaarten]').val()) * $('input[name=pKa]').val();
-		
-		var totaal = (vNatV + vCurV + vProV + vAppV + kNatV + kCurV + kProV + kAppV + soepV) - kaarten;	
+
+		var totaal = (vRibV + vVolV + kRibV + kVolV + soepV) - kaarten;
 		return totaal;
-}	
-	
+}
+
 function totaaldrank () {
 	var totaal = 0;
-	
-	for(i = 1; i < 10; i++) {
+
+	for(i = 1; i <= 2; i++) {
 		totaal += (parseInt($('input[name=cat'+i+']').val()) * eval('prijs' + i));
-	}		
+	}
 	return totaal.toFixed(2); // return totaal met twee cijfers na de komma
 }
 
@@ -93,24 +89,20 @@ function printForm() {
 		var id = document.getElementById('id').value;
 		var naam = document.getElementById('naam').value;
 		var soep = document.getElementById('soep').value;
-		var vNat = document.getElementById('vNat').value;
-		var vCur = document.getElementById('vCur').value;
-		var vPro = document.getElementById('vPro').value;
-		var vApp = document.getElementById('vApp').value;
-		var kNat = document.getElementById('kNat').value;
-		var kCur = document.getElementById('kCur').value;
-		var kPro = document.getElementById('kPro').value;	
-		var kApp = document.getElementById('kApp').value;
+		var vRib = document.getElementById('vRib').value;
+		var vVol = document.getElementById('vVol').value;
+		var kRib = document.getElementById('kRib').value;
+		var kVol = document.getElementById('kVol').value;
 		var kaarten = document.getElementById('kaarten').value;
 		var opmerking = document.getElementById('opm').value;
-	
-		var link = 'print.php?id=' + id + '&naam=' + naam + '&soep=' + soep + '&vNat=' + vNat + '&vCur=' + vCur + '&vPro=' + vPro + '&vApp=' + vApp + '&kNat=' + kNat + '&kCur=' + kCur + '&kPro=' + kPro + '&kApp=' + kApp + '&kaarten=' + kaarten + '&opm=' + opmerking;
+
+		var link = 'print.php?id=' + id + '&naam=' + naam + '&soep=' + soep + '&vRib=' + vRib + '&vVol=' + vVol + '&kRib=' + kRib + '&kVol=' + kVol + '&kaarten=' + kaarten + '&opm=' + opmerking;
 		window.open(link);
 	}
 }
 
 function resetDrank() {
-	for(i = 1; i < 10; i++) {
+	for(i = 1; i < 3; i++) {
 		$('input[name=cat'+i+']').val(0);
 	}
 	$('input[name=totaaldrank]').val(0);
@@ -119,8 +111,8 @@ function resetDrank() {
 function checkNumber(object) {
 	var name = object.name;
 	var value = $('input[name='+name+']').val();
-	var intRegex = /^[0-9]+$/; 
-	
+	var intRegex = /^[0-9]+$/;
+
 	if (value.match(intRegex) == null) {
 		$('input[name='+name+']').val(0);
 	}
@@ -131,7 +123,7 @@ function checkNumber(object) {
 function checkPrice(object) {
 	var name = object.name;
 	var value = $('input[name='+name+']').val();
-	var doubleRegex = /[0-9 -()+]+$/; 
+	var doubleRegex = /[0-9 -()+]+$/;
 	var numericReg = /^\d*[0-9](|.\d*[0-9]|,\d*[0-9])?$/;
 	if (!numericReg.test(value)) {
 		$('#span'+name).html("Prijs niet correct ingevuld");
@@ -144,7 +136,7 @@ function checkPrice(object) {
 function checkIP(object) {
 	var name = object.name;
 	var value = $('input[name='+name+']').val();
-	var intIP = /^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/;    
+	var intIP = /^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/;
 	if (value.match(intIP) == null) {
 		$('#span'+name).html("IP adres niet correct");
 	}

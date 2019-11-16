@@ -3,6 +3,7 @@
 
 	$set = $db->getSettings();
 	$ip = $set['ip'];
+	$pRib = $set['pRib'];
 	$pV = $set['pV'];
 	$pK = $set['pK'];
 	$pS = $set['pS'];
@@ -12,7 +13,6 @@
 
 	date_default_timezone_set('Europe/Brussels');
 ?>
-
 <script>
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -51,31 +51,23 @@ window.addEventListener('DOMContentLoaded', function () {
 	<div id="eten">
 		<div id="eten-l">
 		<h1>Volwassenen</h1>
-		<h2>Natuur</h2>
-		<h2>Curry</h2>
-		<h2>Provencaal</h2>
-		<h2>Appelmoes</h2>
+		<h2>Ribberen</h2>
+		<h2>Vol-au-Vent</h2>
 		</div>
 		<div id="eten-ll">
 		<h1>&nbsp;</h1>
-		<h2><?php echo htmlentities($_GET['kNat']); ?></h2>
-		<h2><?php echo htmlentities($_GET['kCur']); ?></h2>
-		<h2><?php echo htmlentities($_GET['kPro']); ?></h2>
-		<h2><?php echo htmlentities($_GET['kApp']); ?></h2>
+		<h2><?php echo htmlentities($_GET['kRib']); ?></h2>
+		<h2><?php echo htmlentities($_GET['kVol']); ?></h2>
 		</div>
 		<div id="eten-r">
 		<h1>Kinderen</h1>
-		<h2>Natuur</h2>
-		<h2>Curry</h2>
-		<h2>Provencaal</h2>
-		<h2>Appelmoes</h2>
+		<h2>Ribberen</h2>
+		<h2>Vol-au-Vent</h2>
 		</div>
 		<div id="eten-rr">
 		<h1>&nbsp;</h1>
-		<h2><?php echo htmlentities($_GET['vNat']); ?></h2>
-		<h2><?php echo htmlentities($_GET['vCur']); ?></h2>
-		<h2><?php echo htmlentities($_GET['vPro']); ?></h2>
-		<h2><?php echo htmlentities($_GET['vApp']); ?></h2>
+		<h2><?php echo htmlentities($_GET['vRib']); ?></h2>
+		<h2><?php echo htmlentities($_GET['vVol']); ?></h2>
 		</div>
 	</div>
 	<div id="opm-l">
@@ -93,11 +85,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	<div id="bottom-ll">
 		<h2>&nbsp;<?php echo htmlentities($_GET['kaarten']); ?></h2>
-		<h2>&euro; &nbsp;<?php echo (((($_GET['vNat']+$_GET['vCur']+$_GET['vPro']+$_GET['vApp'])*$pV)+($_GET['soep']*$pS)+(($_GET['kNat']+$_GET['kCur']+$_GET['kPro']+$_GET['kApp'])*$pK))-($_GET['kaarten']*$pKa)); ?></h2>
+		<h2>&euro; &nbsp;<?php echo ((($_GET['vRib'] * $pRib) + ($_GET['vVol'] * $pV) + ($_GET['soep'] * $pS) + (($_GET['kRib'] + $_GET['kVol']) * $pK)) - ($_GET['kaarten']*$pKa)); ?></h2>
 	</div>
 	<div id="bottom-r">
 		<h2>Aantal menu's</h2>
-		<h1><?php echo (($_GET['vNat']+$_GET['vCur']+$_GET['vPro']+$_GET['vApp']))+(($_GET['kNat']+$_GET['kCur']+$_GET['kPro']+$_GET['kApp'])); ?></h1>
+		<h1><?php echo (($_GET['vRib']+$_GET['vVol'])) + (($_GET['kRib']+$_GET['kVol'])); ?></h1>
 	</div>
 
 </div>

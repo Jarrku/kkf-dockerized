@@ -37,10 +37,10 @@ class database {
 	}
 	
 	function getInWacht() {
-		$a = $this->fetch_array($this->query("SELECT sum(vNat), sum(vCur), sum(vPro), sum(vApp), sum(kNat), sum(kPro), sum(kCur), sum(kApp) FROM bestellingen WHERE status < 4 LIMIT 1", true));
+		$a = $this->fetch_array($this->query("SELECT sum(vRib), sum(vVol), sum(kRib), sum(kVol) FROM bestellingen WHERE status < 4 LIMIT 1", true));
 		
-		$volw = $a['sum(vNat)'] + $a['sum(kCur)'] + $a['sum(kPro)'] + $a['sum(kApp)'];
-		$kind = $a['sum(kNat)'] + $a['sum(kCur)'] + $a['sum(kPro)'] + $a['sum(kApp)'];
+		$volw = $a['sum(vRib)'] + $a['sum(vVol)'];
+		$kind = $a['sum(kRib)'] + $a['sum(kVol)'];
 
 		$iw = array("v" => $volw, "k" => $kind);
 		return $iw;
@@ -49,7 +49,7 @@ class database {
 	function getSettings() {
 		$a = $this->fetch_array($this->query("SELECT * FROM settings LIMIT 1", true));
 		
-		$set = array("fdatZ" => date("d-m-Y H:i:s", strtotime($a['datZ'])), "datZ" => date("d-m-Y", strtotime($a['datZ'])), "ip" =>$a['ip'], "pV" => $a['pV'], "pK" => $a['pK'], "pS" => $a['pS'], "pKa" => $a['pKa']);
+		$set = array("fdatZ" => date("d-m-Y H:i:s", strtotime($a['datZ'])), "datZ" => date("d-m-Y", strtotime($a['datZ'])), "ip" =>$a['ip'], "pRib" => $a['pRib'], "pV" => $a['pV'], "pK" => $a['pK'], "pS" => $a['pS'], "pKa" => $a['pKa']);
 		return $set;
 		}
 

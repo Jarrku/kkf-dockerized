@@ -34,7 +34,12 @@ $error_show2 = "";
 	<span id="spanip"><?php echo htmlentities($error_show2); ?></span>
 </p>
 <p>
-	<label for="pV">Prijs volwassenen</label>
+	<label for="pV">Prijs Ribberen</label>
+	<input type="text" name="pRib" id="pRib" class="prijs" value="<?php echo htmlentities($pRib); ?>" onchange="checkPrice(this)">
+	<span id="spanpRib"></span>
+</p>
+<p>
+	<label for="pRib">Prijs Vol-au-Vent</label>
 	<input type="text" name="pV" id="pV" class="prijs" value="<?php echo htmlentities($pV); ?>" onchange="checkPrice(this)">
 	<span id="spanpV"></span>
 </p>
@@ -59,49 +64,14 @@ $error_show2 = "";
 </div>
 <div class="formLeft">
 <p>
-	<label for="prijs1" title="Oudercomite">Prijs Cat1</label>
+	<label for="prijs1" title="1 Bonnetje">Prijs Cat1</label>
 	<input type="text" name="prijs1" id="prijs1" class="prijs" value="<?php echo htmlentities($prijs1); ?>" onchange="checkPrice(this)">
 	<span id="spanprijs1"></span>
 </p>
 <p>
-	<label for="prijs2" title="Porto, Sherry">Prijs Cat2</label>
+	<label for="prijs2" title="Zuipkaart">Prijs Cat2</label>
 	<input type="text" name="prijs2" id="prijs2" class="prijs" value="<?php echo htmlentities($prijs2); ?>" onchange="checkPrice(this)">
 	<span id="spanprijs2"></span>
-</p>
-<p>
-	<label for="prijs3" title="Cola, Fanta, Pils, ...">Prijs Cat3</label>
-	<input type="text" name="prijs3" id="prijs3" class="prijs" value="<?php echo htmlentities($prijs3); ?>" onchange="checkPrice(this)">
-	<span id="spanprijs3"></span>
-</p>
-<p>
-	<label for="prijs4" title="Gini, Ice Tea, Palm, ...">Prijs Cat4</label>
-	<input type="text" name="prijs4" id="prijs4" class="prijs" value="<?php echo htmlentities($prijs4); ?>" onchange="checkPrice(this)">
-	<span id="spanprijs4"></span>
-</p>
-<p>
-	<label for="prijs5" title="Malheur, Rodenbach, Kriek">Prijs Cat5</label>
-	<input type="text" name="prijs5" id="prijs5" class="prijs" value="<?php echo htmlentities($prijs5); ?>" onchange="checkPrice(this)">
-	<span id="spanprijs5"></span>
-</p>
-<p>
-	<label for="prijs6" title="Zware bieren">Prijs Cat6</label>
-	<input type="text" name="prijs6" id="prijs6" class="prijs" value="<?php echo htmlentities($prijs6); ?>" onchange="checkPrice(this)">
-	<span id="spanprijs6"></span>
-</p>
-<p>
-	<label for="prijs7" title="Fles wijn">Prijs Cat7</label>
-	<input type="text" name="prijs7" id="prijs7" class="prijs" value="<?php echo htmlentities($prijs7); ?>" onchange="checkPrice(this)">
-	<span id="spanprijs7"></span>
-</p>
-<p>
-	<label for="prijs8" title="Creme, verwenkoffie">Prijs Cat8</label>
-	<input type="text" name="prijs8" id="prijs8" class="prijs" value="<?php echo htmlentities($prijs8); ?>" onchange="checkPrice(this)">
-	<span id="spanprijs8"></span>
-</p>
-<p>
-	<label for="prijs9" title="Kinderijs">Prijs Cat9</label>
-	<input type="text" name="prijs9" id="prijs9" class="prijs" value="<?php echo htmlentities($prijs9); ?>" onchange="checkPrice(this)">
-	<span id="spanprijs9"></span>
 </p>
 
 </div>

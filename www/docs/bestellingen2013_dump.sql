@@ -35,14 +35,10 @@ CREATE TABLE IF NOT EXISTS `bestellingen` (
   `tafelTijd` datetime DEFAULT NULL,
   `kaarten` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
-  `vNat` int(11) DEFAULT NULL,
-  `vCur` int(11) DEFAULT NULL,
-  `vPro` int(11) DEFAULT NULL,
-  `vApp` int(11) DEFAULT NULL,
-  `kNat` int(11) DEFAULT NULL,
-  `kCur` int(11) DEFAULT NULL,
-  `kPro` int(11) DEFAULT NULL,
-  `kApp` int(11) DEFAULT NULL,
+  `vRib` int(11) DEFAULT NULL,
+  `vVol` int(11) DEFAULT NULL,
+  `kRib` int(11) DEFAULT NULL,
+  `kVol` int(11) DEFAULT NULL,
   `soep` int(11) DEFAULT NULL,
   `tafel` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -52,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `bestellingen` (
 -- Gegevens worden uitgevoerd voor tabel `bestellingen`
 --
 
-INSERT INTO `bestellingen` (`id`, `naam`, `geplaatstTijd`, `keukenTijd`, `soepTijd`, `tafelTijd`, `kaarten`, `status`, `vNat`, `vCur`, `vPro`, `vApp`, `kNat`, `kCur`, `kPro`, `kApp`, `soep`, `tafel`) VALUES
+INSERT INTO `bestellingen` (`id`, `naam`, `geplaatstTijd`, `keukenTijd`, `soepTijd`, `tafelTijd`, `kaarten`, `status`, `vRib`, `vVol`, `kRib`, `kVol`, `soep`, `tafel`) VALUES
 (1, 'Test', '2013-02-23 16:19:50', '2013-02-23 17:19:55', NULL, '2013-02-23 17:19:55', 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
 (2, 'Vanzulpele', '2013-02-23 16:20:49', '2013-02-23 17:32:10', NULL, '2013-02-23 18:01:05', 5, 4, 0, 1, 1, 0, 0, 0, 0, 0, 0, 703),
 (3, 'Verdyck', '2013-02-23 16:22:09', '2013-02-23 17:26:35', NULL, '2013-02-23 17:56:59', 0, 4, 0, 1, 1, 0, 0, 0, 0, 0, 0, 804),

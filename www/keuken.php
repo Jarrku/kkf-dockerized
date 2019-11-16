@@ -31,14 +31,10 @@
 		<th width="200">Naam</th>
 		<th width="90">Gescand?</th>
 		<th width="90">Soep</th>
-		<th width="90">Natuur Volw</th>
-		<th width="90">Curry Volw</th>
-		<th width="90">Provencaal Volw</th>
-		<th width="90">Appelmoes Volw</th>
-		<th width="90">Natuur Kind</th>
-		<th width="90">Curry Kind</th>
-		<th width="90">Provencaal Kind</th>
-		<th width="90">Appelmoes Kind</th>
+		<th width="90">Rib Volw</th>
+		<th width="90">Vol-au-vent Volw</th>
+		<th width="90">Rib Kind</th>
+		<th width="90">Vol-au-vent Kind</th>
 		<th width="90">Totaal</th>
 		<th width="90">Tafelnr</th>
 		<th>Actie uitvoeren</th>
@@ -58,22 +54,17 @@
 		}
 		else $gescand = "";
 		$status = stripslashes($a['status']);
-		$totaal = $a['soep'] + $a['vNat'] + $a['vCur'] + $a['vPro'] + $a['vApp'] + $a['kNat'] + $a['kCur'] + $a['kPro'] + $a['kApp'];
-		
+		$totaal = $a['soep'] + $a['vRib'] + $a['vVol'] + $a['kRib'] + $a['kVol'];
 		echo "
 			<tr class=\"s". htmlentities($a['status']) ."\">
 				<td>". htmlentities($id) . "</td>
 				<td>". htmlentities($naam) ."</td>
 				<td>". htmlentities($gescand) ."</td>
 				<td>". htmlentities($a['soep']) ."</td>
-				<td>". htmlentities($a['vNat']) ."</td>
-				<td>". htmlentities($a['vCur']) ."</td>
-				<td>". htmlentities($a['vPro']) ."</td>
-				<td>". htmlentities($a['vApp']) ."</td>
-				<td>". htmlentities($a['kNat']) ."</td>
-				<td>". htmlentities($a['kCur']) ."</td>
-				<td>". htmlentities($a['kPro']) ."</td>
-				<td>". htmlentities($a['kApp']) ."</td>
+				<td>". htmlentities($a['vRib']) ."</td>
+				<td>". htmlentities($a['vVol']) ."</td>
+				<td>". htmlentities($a['kRib']) ."</td>
+				<td>". htmlentities($a['kVol']) ."</td>
 				<td>". htmlentities($totaal) ."</td>
 				<td>". htmlentities($a['tafel']) ."</td>
 				<td>";

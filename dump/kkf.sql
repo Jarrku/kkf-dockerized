@@ -17,14 +17,10 @@ CREATE TABLE `bestellingen` (
   `tafelTijd` datetime DEFAULT NULL,
   `kaarten` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
-  `vNat` int(11) DEFAULT NULL,
-  `vCur` int(11) DEFAULT NULL,
-  `vPro` int(11) DEFAULT NULL,
-  `vApp` int(11) DEFAULT NULL,
-  `kNat` int(11) DEFAULT NULL,
-  `kCur` int(11) DEFAULT NULL,
-  `kPro` int(11) DEFAULT NULL,
-  `kApp` int(11) DEFAULT NULL,
+  `vRib` int(11) DEFAULT NULL,
+  `vVol` int(11) DEFAULT NULL,
+  `kRib` int(11) DEFAULT NULL,
+  `kVol` int(11) DEFAULT NULL,
   `soep` int(11) DEFAULT NULL,
   `tafel` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -40,13 +36,6 @@ CREATE TABLE `drank` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cat1` int(11) NOT NULL,
   `cat2` int(11) NOT NULL,
-  `cat3` int(11) NOT NULL,
-  `cat4` int(11) NOT NULL,
-  `cat5` int(11) NOT NULL,
-  `cat6` int(11) NOT NULL,
-  `cat7` int(11) NOT NULL,
-  `cat8` int(11) NOT NULL,
-  `cat9` int(11) NOT NULL,
   `datum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -62,13 +51,6 @@ CREATE TABLE `drankprijs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `prijs1` double NOT NULL,
   `prijs2` double NOT NULL,
-  `prijs3` double NOT NULL,
-  `prijs4` double NOT NULL,
-  `prijs5` double NOT NULL,
-  `prijs6` double NOT NULL,
-  `prijs7` double NOT NULL,
-  `prijs8` double NOT NULL,
-  `prijs9` double NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -76,8 +58,8 @@ CREATE TABLE `drankprijs` (
 -- Dumping data for table `drankprijs`
 --
 
-INSERT INTO `drankprijs` (`id`, `prijs1`, `prijs2`, `prijs3`, `prijs4`, `prijs5`, `prijs6`, `prijs7`, `prijs8`, `prijs9`) VALUES
-(1, 2, 2.8, 1.6, 1.7, 2, 3, 16, 3, 1);
+INSERT INTO `drankprijs` (`id`, `prijs1`, `prijs2`) VALUES
+(1, 1.8, 16);
 
 -- --------------------------------------------------------
 
@@ -89,6 +71,7 @@ CREATE TABLE `settings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `datZ` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `ip` varchar(16) NOT NULL,
+  `pRib` double NOT NULL,
   `pV` double NOT NULL,
   `pK` double NOT NULL,
   `pS` double NOT NULL,
@@ -100,6 +83,6 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `datZ`, `ip`, `pV`, `pK`, `pS`, `pKa`) VALUES
-(1, '2015-02-28 22:59:59', '192.168.1.2', 14, 10, 2.5, 2);
+INSERT INTO `settings` (`id`, `datZ`, `ip`, `pRib`, `pV`, `pK`, `pS`, `pKa`) VALUES
+(1, '2019-11-15 11:59:59', '192.168.1.2', 18, 16, 13, 2.5, 2);
 
