@@ -21,10 +21,12 @@ CREATE TABLE `bestellingen` (
   `vCur` int(11) DEFAULT NULL,
   `vPro` int(11) DEFAULT NULL,
   `vApp` int(11) DEFAULT NULL,
+  `vVeggie` int(11) DEFAULT NULL,
   `kNat` int(11) DEFAULT NULL,
   `kCur` int(11) DEFAULT NULL,
   `kPro` int(11) DEFAULT NULL,
   `kApp` int(11) DEFAULT NULL,
+  `kVeggie` int(11) DEFAULT NULL,
   `soep` int(11) DEFAULT NULL,
   `tafel` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -101,5 +103,5 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `datZ`, `ip`, `pV`, `pK`, `pS`, `pKa`) VALUES
-(1, '2015-02-28 22:59:59', '192.168.1.2', 14, 10, 2.5, 2);
+(1, '2023-03-11 22:59:59', '192.168.1.2', 19, 14, 4, 2);
 

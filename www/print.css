@@ -108,28 +108,28 @@ h2 {
 }
 
 #eten-l {
-	height: 300px;
+	height: 370px;
 	width: 147px;
 	float: left;
 	border-bottom: 1px solid #000;
 }
 
 #eten-ll {
-	height: 300px;
+	height: 370px;
 	width: 147px;
 	float: right;
 	border-bottom: 1px solid #000;
 }
 
 #eten-r {
-	height: 300px;
+	height: 370px;
 	width: 147px;
 	float: right;
 	border-bottom: 1px solid #000;
 }
 
 #eten-rr {
-	height: 300px;
+	height: 370px;
 	width: 147px;
 	float: left;
 	border-bottom: 1px solid #000;
@@ -146,5 +146,5 @@ h2 {
 	width: 440px;
 	float: right;
 }
-	
+
 

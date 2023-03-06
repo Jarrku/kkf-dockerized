@@ -7,22 +7,24 @@
 		<th width="90">Curry Volw</th>
 		<th width="90">Provencaal Volw</th>
 		<th width="90">Appelmoes Volw</th>
+		<th width="90">Veggie Volw</th>
 		<th width="90">Natuur Kind</th>
 		<th width="90">Curry Kind</th>
 		<th width="90">Provencaal Kind</th>
 		<th width="90">Appelmoes Kind</th>
+		<th width="90">Veggie Kind</th>
 		<th width="90">Soep</th>
 		<th width="90">Kaarten</th>
 		<th width="90">Totaal</th>
 	</thead>
 	<tbody>
 <?php
-	
-	$vNatZ = 0;	$vCurZ = 0;	$vProZ = 0;	$vAppZ = 0;
-	$kNatZ = 0;	$kCurZ = 0;	$kProZ = 0;	$kAppZ = 0;
+
+	$vNatZ = 0;	$vCurZ = 0;	$vProZ = 0;	$vAppZ = 0; $vVeggieZ = 0;
+	$kNatZ = 0;	$kCurZ = 0;	$kProZ = 0;	$kAppZ = 0; $kVeggieZ = 0;
 	$soepZ = 0;	$kaartenZ = 0;
-	$vNatZo = 0; $vCurZo = 0; $vProZo = 0; $vAppZo = 0;
-	$kNatZo = 0; $kCurZo = 0; $kProZo = 0; $kAppZo = 0;
+	$vNatZo = 0; $vCurZo = 0; $vProZo = 0; $vAppZo = 0; $vVeggieZo = 0;
+	$kNatZo = 0; $kCurZo = 0; $kProZo = 0; $kAppZo = 0; $kVeggieZo = 0;
 	$soepZo = 0; $kaartenZo = 0;
 
 	$r = $mysqli->query("SELECT * FROM bestellingen");
@@ -30,7 +32,7 @@
 
     if ( $r !== false ) {
 		while ( $a = $r->fetch_array() ) {
-			$dt = new DateTime($a['geplaatstTijd']); 
+			$dt = new DateTime($a['geplaatstTijd']);
 			$gescand = $dt->format('Y-m-d H:i:s');
 			$datum = strtotime($gescand);
 			if($datum < $zaterdag) {
@@ -38,10 +40,12 @@
 				$vCurZ += $a['vCur'];
 				$vProZ += $a['vPro'];
 				$vAppZ += $a['vApp'];
+				$vVeggieZ += $a['vVeggie'];
 				$kNatZ += $a['kNat'];
 				$kCurZ += $a['kCur'];
 				$kProZ += $a['kPro'];
 				$kAppZ += $a['kApp'];
+				$kVeggieZ += $a['kVeggie'];
 				$kaartenZ += $a['kaarten'];
 				$soepZ += $a['soep'];
 			}
@@ -50,24 +54,26 @@
 				$vCurZo += $a['vCur'];
 				$vProZo += $a['vPro'];
 				$vAppZo += $a['vApp'];
+				$vVeggieZo += $a['vVeggie'];
 				$kNatZo += $a['kNat'];
 				$kCurZo += $a['kCur'];
 				$kProZo += $a['kPro'];
 				$kAppZo += $a['kApp'];
+				$kVeggieZo += $a['kVeggie'];
 				$kaartenZo += $a['kaarten'];
 				$soepZo += $a['soep'];
 			}
-		
+
 		}
-		
-		$totZ = $vNatZ + $vCurZ + $vProZ + $vAppZ + $kNatZ + $kCurZ + $kProZ + $kAppZ;
-		$totZo = $vNatZo + $vCurZo + $vProZo + $vAppZo + $kNatZo + $kCurZo + $kProZo + $kAppZo;
-		
-		$totZE = (($vNatZ + $vCurZ + $vProZ + $vAppZ) * $pV) + (($kNatZ + $kCurZ + $kProZ + $kAppZ) * $pK) + ($soepZ * $pS) - ($kaartenZ * $pKa);
-		$totZoE = (($vNatZo + $vCurZo + $vProZo + $vAppZo) * $pV) + (($kNatZo + $kCurZo + $kProZo + $kAppZo) * $pK) + ($soepZo * $pS) - ($kaartenZo * $pKa);
+
+		$totZ = $vNatZ + $vCurZ + $vProZ + $vAppZ + $vVeggieZ + $kNatZ + $kCurZ + $kProZ + $kAppZ + $kVeggieZ;
+		$totZo = $vNatZo + $vCurZo + $vProZo + $vAppZo + $vVeggieZo + $kNatZo + $kCurZo + $kProZo + $kAppZo + $kVeggieZo;
+
+		$totZE = (($vNatZ + $vCurZ + $vProZ + $vAppZ + $vVeggieZ) * $pV) + (($kNatZ + $kCurZ + $kProZ + $kAppZ + $kVeggieZ) * $pK) + ($soepZ * $pS) - ($kaartenZ * $pKa);
+		$totZoE = (($vNatZo + $vCurZo + $vProZo + $vAppZo + $vVeggieZo) * $pV) + (($kNatZo + $kCurZo + $kProZo + $kAppZo + $kVeggieZo) * $pK) + ($soepZo * $pS) - ($kaartenZo * $pKa);
 		$totWE = $totZE + $totZoE;
 	}
-	
+
 	echo "
 			<tr>
 				<td>Zaterdag</td>
@@ -75,15 +81,17 @@
 				<td>". htmlentities($vCurZ) ."</td>
 				<td>". htmlentities($vProZ) ."</td>
 				<td>". htmlentities($vAppZ) ."</td>
+				<td>". htmlentities($vVeggieZ) ."</td>
 				<td>". htmlentities($kNatZ) ."</td>
 				<td>". htmlentities($kCurZ) ."</td>
 				<td>". htmlentities($kProZ) ."</td>
 				<td>". htmlentities($kAppZ) ."</td>
+				<td>". htmlentities($kVeggieZ) ."</td>
 				<td>". htmlentities($soepZ) ."</td>
 				<td>". htmlentities($kaartenZ) ."</td>
 				<td>". htmlentities($totZ) ."</td>
 			</tr>";
-	
+
 	echo "
 			<tr>
 				<td>Zondag</td>
@@ -91,15 +99,17 @@
 				<td>". htmlentities($vCurZo) ."</td>
 				<td>". htmlentities($vProZo) ."</td>
 				<td>". htmlentities($vAppZo) ."</td>
+				<td>". htmlentities($vVeggieZo) ."</td>
 				<td>". htmlentities($kNatZo) ."</td>
 				<td>". htmlentities($kCurZo) ."</td>
 				<td>". htmlentities($kProZo) ."</td>
 				<td>". htmlentities($kAppZo) ."</td>
+				<td>". htmlentities($kVeggieZo) ."</td>
 				<td>". htmlentities($soepZo) ."</td>
 				<td>". htmlentities($kaartenZo) ."</td>
 				<td>". htmlentities($totZo) ."</td>
 			</tr>";
-	
+
 	echo "
 			<tr>
 				<td>Totaal</td>
@@ -107,20 +117,22 @@
 				<td>". htmlentities($vCurZo + $vCurZ) ."</td>
 				<td>". htmlentities($vProZo + $vProZ) ."</td>
 				<td>". htmlentities($vAppZo + $vAppZ) ."</td>
+				<td>". htmlentities($vVeggieZo + $vVeggieZ) ."</td>
 				<td>". htmlentities($kNatZo + $kNatZ) ."</td>
 				<td>". htmlentities($kCurZo + $kCurZ) ."</td>
 				<td>". htmlentities($kProZo + $kProZ) ."</td>
 				<td>". htmlentities($kAppZo + $kAppZ) ."</td>
+				<td>". htmlentities($kVeggieZo + $kVeggieZ) ."</td>
 				<td>". htmlentities($soepZo + $soepZ) ."</td>
 				<td>". htmlentities($kaartenZo + $kaartenZ) ."</td>
 				<td>". htmlentities($totZ + $totZo) ."</td>
 			</tr>";
-	
+
 ?>
 </tbody>
 </table>
 <br />
-<?php 
+<?php
 	$qra = $mysqli->query("SELECT TIME_TO_SEC(TIMEDIFF(tafelTijd, keukenTijd)) AS tijdsverschil, naam FROM bestellingen WHERE status = 4 ORDER BY tijdsverschil ASC");
 	$qr = $mysqli->query("SELECT TIME_TO_SEC(TIMEDIFF(tafelTijd, keukenTijd)) AS tijdsverschil FROM bestellingen WHERE status = 4 ORDER BY id DESC LIMIT 1");
 	$r = $mysqli->query("SELECT TIME_TO_SEC(TIMEDIFF(tafelTijd, keukenTijd)) AS tijdsverschil FROM bestellingen WHERE status = 4");
@@ -129,31 +141,31 @@
 	$tijdl = 0;
 	$tijdlangst = 0;
 	$naaml = "";
-	
+
 	if ( $qra !== false ) {
 		while ( $qal = $qra->fetch_array() ) {
-			$tijdlangst = strtotime(date("H:i:s", $qal['tijdsverschil']))-3600;	
+			$tijdlangst = strtotime(date("H:i:s", $qal['tijdsverschil']))-3600;
 			$naaml = $qal['naam'];
 		}
 	}
-	
+
 	if ( $qr !== false ) {
 		while ( $qa = $qr->fetch_array() ) {
-			$tijdl += strtotime(date("H:i:s", $qa['tijdsverschil']))-3600;			
+			$tijdl += strtotime(date("H:i:s", $qa['tijdsverschil']))-3600;
 		}
 	}
-	
+
     if ( $r !== false ) {
 		while ( $a = $r->fetch_array() ) {
 			$tijd += strtotime(date("H:i:s", $a['tijdsverschil']))-3600;
-			$t++;			
+			$t++;
 		}
 	}
-	
-	
 
-	
-	
+
+
+
+
 	$gemTijd = ($tijd / $t);
 	echo "<div id=\"stats-l\">";
 	echo "<p><h2>Gemiddelde wachttijd: ". date("H:i:s",$gemTijd) ."</h2></p>";
@@ -179,14 +191,16 @@
 		<th width="90">Curry Volw</th>
 		<th width="90">Provencaal Volw</th>
 		<th width="90">Appelmoes Volw</th>
+		<th width="90">Veggie Volw</th>
 		<th width="90">Natuur Kind</th>
 		<th width="90">Curry Kind</th>
 		<th width="90">Provencaal Kind</th>
 		<th width="90">Appelmoes Kind</th>
+		<th width="90">Veggie Kind</th>
 		<th width="90">Totaal</th>
 	</thead>
 	<tbody>
-	
+
 
 <?php
 	$r = $mysqli->query("SELECT * FROM bestellingen WHERE status = 4 ORDER BY id ASC", true);
@@ -196,8 +210,8 @@
 			$id = stripslashes($a['id']);
 			$naam = stripslashes($a['naam']);
 			$status = stripslashes($a['status']);
-			$totaal = $a['soep'] + $a['vNat'] + $a['vCur'] + $a['vPro'] + $a['vApp'] + $a['kNat'] + $a['kCur'] + $a['kPro'] + $a['kApp'];
-		
+			$totaal = $a['soep'] + $a['vNat'] + $a['vCur'] + $a['vPro'] + $a['vApp'] + $a['vVeggie'] + $a['kNat'] + $a['kCur'] + $a['kPro'] + $a['kApp'] + $a['kVeggie'];
+
 			echo "
 				<tr>
 					<td>". htmlentities($id) . "</td>
@@ -207,10 +221,12 @@
 					<td>". htmlentities($a['vCur']) ."</td>
 					<td>". htmlentities($a['vPro']) ."</td>
 					<td>". htmlentities($a['vApp']) ."</td>
+					<td>". htmlentities($a['vVeggie']) ."</td>
 					<td>". htmlentities($a['kNat']) ."</td>
 					<td>". htmlentities($a['kCur']) ."</td>
 					<td>". htmlentities($a['kPro']) ."</td>
 					<td>". htmlentities($a['kApp']) ."</td>
+					<td>". htmlentities($a['kVeggie']) ."</td>
 					<td>". htmlentities($totaal) ."</td>
 				</tr>";
 		}

@@ -55,6 +55,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		<h2>Curry</h2>
 		<h2>Provencaal</h2>
 		<h2>Appelmoes</h2>
+		<h2>Veggie</h2>
 		</div>
 		<div id="eten-ll">
 		<h1>&nbsp;</h1>
@@ -62,6 +63,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		<h2><?php echo htmlentities($_GET['kCur']); ?></h2>
 		<h2><?php echo htmlentities($_GET['kPro']); ?></h2>
 		<h2><?php echo htmlentities($_GET['kApp']); ?></h2>
+		<h2><?php echo htmlentities($_GET['kVeggie']); ?></h2>
 		</div>
 		<div id="eten-r">
 		<h1>Kinderen</h1>
@@ -69,6 +71,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		<h2>Curry</h2>
 		<h2>Provencaal</h2>
 		<h2>Appelmoes</h2>
+		<h2>Veggie</h2>
 		</div>
 		<div id="eten-rr">
 		<h1>&nbsp;</h1>
@@ -76,6 +79,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		<h2><?php echo htmlentities($_GET['vCur']); ?></h2>
 		<h2><?php echo htmlentities($_GET['vPro']); ?></h2>
 		<h2><?php echo htmlentities($_GET['vApp']); ?></h2>
+		<h2><?php echo htmlentities($_GET['vVeggie']); ?></h2>
 		</div>
 	</div>
 	<div id="opm-l">
@@ -93,11 +97,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	<div id="bottom-ll">
 		<h2>&nbsp;<?php echo htmlentities($_GET['kaarten']); ?></h2>
-		<h2>&euro; &nbsp;<?php echo (((($_GET['vNat']+$_GET['vCur']+$_GET['vPro']+$_GET['vApp'])*$pV)+($_GET['soep']*$pS)+(($_GET['kNat']+$_GET['kCur']+$_GET['kPro']+$_GET['kApp'])*$pK))-($_GET['kaarten']*$pKa)); ?></h2>
+		<h2>&euro; &nbsp;<?php echo (((($_GET['vNat']+$_GET['vCur']+$_GET['vPro']+$_GET['vApp']+$_GET['vVeggie'])*$pV)+($_GET['soep']*$pS)+(($_GET['kNat']+$_GET['kCur']+$_GET['kPro']+$_GET['kApp']+$_GET['kVeggie'])*$pK))-($_GET['kaarten']*$pKa)); ?></h2>
 	</div>
 	<div id="bottom-r">
 		<h2>Aantal menu's</h2>
-		<h1><?php echo (($_GET['vNat']+$_GET['vCur']+$_GET['vPro']+$_GET['vApp']))+(($_GET['kNat']+$_GET['kCur']+$_GET['kPro']+$_GET['kApp'])); ?></h1>
+		<h1><?php echo (($_GET['vNat']+$_GET['vCur']+$_GET['vPro']+$_GET['vApp']+$_GET['vVeggie']))+(($_GET['kNat']+$_GET['kCur']+$_GET['kPro']+$_GET['kApp']+$_GET['kVeggie'])); ?></h1>
 	</div>
 
 </div>

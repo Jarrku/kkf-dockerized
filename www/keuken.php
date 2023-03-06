@@ -2,22 +2,22 @@
 	$iw = $db->getInWacht();
 	$volw = $iw['v'];
 	$kind = $iw['k'];
-	
+
 	if(isset($_POST)) {
 		$time = date('Y-m-d H:i:s', time());
 		if(isset($_POST['in'])) {
 			if($_POST['soep'] > 0)
 				$db->query("UPDATE bestellingen SET keukenTijd = '". $time ."', status = '2' WHERE id = ". $_POST['in'] ."", true);
 			else $db->query("UPDATE bestellingen SET keukenTijd = '". $time ."', status = '3' WHERE id = ". $_POST['in'] ."", true);
-			
+
 		}
 		else if(isset($_POST['outS'])) {
 			$db->query("UPDATE bestellingen SET soepTijd = '". $time ."', status = '3' WHERE id = ". $_POST['outS'] ."", true);
-			
+
 		}
 		else if(isset($_POST['out'])) {
 			$db->query("UPDATE bestellingen SET tafelTijd = '". $time ."', status = '4' WHERE id = ". $_POST['out'] ."", true);
-	
+
 			$iw = $db->getInWacht();
 			$volw = $iw['v'];
 			$kind = $iw['k'];
@@ -35,10 +35,12 @@
 		<th width="90">Curry Volw</th>
 		<th width="90">Provencaal Volw</th>
 		<th width="90">Appelmoes Volw</th>
+		<th width="90">Veggie Volw</th>
 		<th width="90">Natuur Kind</th>
 		<th width="90">Curry Kind</th>
 		<th width="90">Provencaal Kind</th>
 		<th width="90">Appelmoes Kind</th>
+		<th width="90">Veggie Kind</th>
 		<th width="90">Totaal</th>
 		<th width="90">Tafelnr</th>
 		<th>Actie uitvoeren</th>
@@ -53,13 +55,13 @@
 		$id = stripslashes($a['id']);
         $naam = stripslashes($a['naam']);
 		if($a['keukenTijd'] != null) {
-			$dt = new DateTime($a['keukenTijd']); 
+			$dt = new DateTime($a['keukenTijd']);
 			$gescand = $dt->format('H:i:s');
 		}
 		else $gescand = "";
 		$status = stripslashes($a['status']);
-		$totaal = $a['soep'] + $a['vNat'] + $a['vCur'] + $a['vPro'] + $a['vApp'] + $a['kNat'] + $a['kCur'] + $a['kPro'] + $a['kApp'];
-		
+		$totaal = $a['soep'] + $a['vNat'] + $a['vCur'] + $a['vPro'] + $a['vApp'] + $a['vVeggie'] + $a['kNat'] + $a['kCur'] + $a['kPro'] + $a['kApp'] + $a['kVeggie'];
+
 		echo "
 			<tr class=\"s". htmlentities($a['status']) ."\">
 				<td>". htmlentities($id) . "</td>
@@ -70,10 +72,12 @@
 				<td>". htmlentities($a['vCur']) ."</td>
 				<td>". htmlentities($a['vPro']) ."</td>
 				<td>". htmlentities($a['vApp']) ."</td>
+				<td>". htmlentities($a['vVeggie']) ."</td>
 				<td>". htmlentities($a['kNat']) ."</td>
 				<td>". htmlentities($a['kCur']) ."</td>
 				<td>". htmlentities($a['kPro']) ."</td>
 				<td>". htmlentities($a['kApp']) ."</td>
+				<td>". htmlentities($a['kVeggie']) ."</td>
 				<td>". htmlentities($totaal) ."</td>
 				<td>". htmlentities($a['tafel']) ."</td>
 				<td>";
@@ -100,13 +104,16 @@
 							</form>";
 					}
 					else echo "Bestelling is afgewerkt";
-					
+
 		echo "
 				</td>
 			</tr>";
-		
+
 		}
 	}
 ?>
 </tbody>
 </table>
+<script>
+	window.setTimeout(() => window.location.reload(), 5000)
+</script>

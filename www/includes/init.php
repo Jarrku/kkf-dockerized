@@ -20,10 +20,10 @@ function getId() {
 }
 
 function getInWacht() {
-	$query = $mysqli->query("SELECT sum(vNat), sum(vCur), sum(vPro), sum(vApp), sum(kNat), sum(kPro), sum(kCur), sum(kApp) FROM bestellingen WHERE status < 4 LIMIT 1");
+	$query = $mysqli->query("SELECT sum(vNat), sum(vCur), sum(vPro), sum(vApp), sum(vVeggie), sum(kNat), sum(kPro), sum(kCur), sum(kApp), sum(kVeggie) FROM bestellingen WHERE status < 4 LIMIT 1");
 	while($a = $query->fetch_array()) {
-		$volw = $a['sum(vNat)'] + $a['sum(kCur)'] + $a['sum(kPro)'] + $a['sum(kApp)'];
-		$kind = $a['sum(kNat)'] + $a['sum(kCur)'] + $a['sum(kPro)'] + $a['sum(kApp)'];
+		$volw = $a['sum(vNat)'] + $a['sum(vCur)'] + $a['sum(vPro)'] + $a['sum(vApp)'] + $a['sum(vVeggie)'];
+		$kind = $a['sum(kNat)'] + $a['sum(kCur)'] + $a['sum(kPro)'] + $a['sum(kApp)'] + $a['sum(kVeggie)'];
 	}
 	$iw = array("v" => $volw, "k" => $kind);
 	return $iw;
